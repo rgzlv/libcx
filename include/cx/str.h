@@ -11,6 +11,7 @@ char *cx_strtolower(const char *s);
 char *cx_strtolower_i(char *s);
 char *cx_strpfx(const char *s, size_t len);
 char *cx_strsfx(const char *s, size_t len);
+char *cx_strrstr(const char *s1, const char *s2);
 bool cx_strmatch(const char *s, const char *match);
 bool cx_strhaspfx(const char *s, const char *prefix);
 bool cx_strhassfx(const char *s, const char *suffix);

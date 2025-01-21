@@ -72,6 +72,15 @@ char *cx_strsfx(const char *s, size_t len) {
 	return memcpy(suffix, c, len);
 }
 
+char *cx_strrstr(const char *s1, const char *s2) {
+	char *s = strrchr(s1, *s2);
+	if (!s) return NULL;
+	if (!strcmp(s, s2)) return s;
+//	for (const char *p = s1 + strlen(s1) - 1; p >= s1; p--)
+//		if (!strcmp(p, s2)) return (char *)p;
+	return NULL;
+}
+
 bool cx_strmatch(const char *s, const char *match) {
 	if (!s || !match) return false;
 	for (const char *c = s; *c; c++)
