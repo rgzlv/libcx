@@ -16,5 +16,6 @@ bool cx_strmatch(const char *s, const char *match);
 bool cx_strhaspfx(const char *s, const char *prefix);
 bool cx_strhassfx(const char *s, const char *suffix);
 bool cx_streq(const char *s1, const char *s2);
+bool cx_strneq(const char *s1, const char *s2, size_t n);
 
 #endif

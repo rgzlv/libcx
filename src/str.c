@@ -103,8 +103,20 @@ bool cx_strhassfx(const char *s, const char *suffix) {
 }
 
 bool cx_streq(const char *s1, const char *s2) {
+	if (!s1 && !s2) return true;
+	if (!s1 || !s2) return false;
 	size_t s1_len = strlen(s1);
 	if (s1_len != strlen(s2)) return false;
 	if (!memcmp(s1, s2, s1_len)) return true;
 	return false;
+}
+
+bool cx_strneq(const char *s1, const char *s2, size_t n) {
+	if (!s1 && !s2) return true;
+	if (!s1 || !s2) return false;
+	size_t s1_len = strlen(s1), s2_len = strlen(s2);
+	if (s1_len < n || s2_len < n) return false;
+	for (const char *c1 = s1, *c2 = s2; n; n--)
+		if (*c1 != *c2) return false;
+	return true;
 }
