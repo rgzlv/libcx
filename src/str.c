@@ -76,8 +76,6 @@ char *cx_strrstr(const char *s1, const char *s2) {
 	char *s = strrchr(s1, *s2);
 	if (!s) return NULL;
 	if (!strcmp(s, s2)) return s;
-//	for (const char *p = s1 + strlen(s1) - 1; p >= s1; p--)
-//		if (!strcmp(p, s2)) return (char *)p;
 	return NULL;
 }
 
@@ -101,5 +99,12 @@ bool cx_strhassfx(const char *s, const char *suffix) {
 	char *last = strrchr(s, *suffix);
 	if (!last) return false;
 	if (!strcmp(last, suffix)) return true;
+	return false;
+}
+
+bool cx_streq(const char *s1, const char *s2) {
+	size_t s1_len = strlen(s1);
+	if (s1_len != strlen(s2)) return false;
+	if (!memcmp(s1, s2, s1_len)) return true;
 	return false;
 }
