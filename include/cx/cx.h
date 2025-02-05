@@ -3,5 +3,6 @@
 
 #include <cx/str.h>
 #include <cx/err.h>
+#include <cx/sys.h>
 
 #endif
